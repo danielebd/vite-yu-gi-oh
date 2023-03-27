@@ -1,23 +1,34 @@
 
 <script>
+import Archetype from './Archetype.vue';
+import TabCards from './TabCards.vue'
 export default {
-    name: 'Main'
+    name: 'Main',
+    components: {
+        Archetype,
+        TabCards
+
+    }
 }
 </script>
 
 <template>
     <main>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                archetype
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+        <div class="my-container">
+            <Archetype />
+            <TabCards />
         </div>
+
     </main>
 </template>
 <style lang="scss" scoped>
+main {
+    background-color: #d48f38;
+
+    .my-container {
+        width: 1340px;
+        margin: 0 auto;
+        
+    }
+}
 </style>
