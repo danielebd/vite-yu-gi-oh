@@ -30,6 +30,7 @@ export default {
         background-color: #d48f38;
         img {
             width: 100%;
+            background-image: url('https://www.grouphealth.ca/wp-content/uploads/2018/05/placeholder-image.png');
         }
     }
 </style>

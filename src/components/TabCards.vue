@@ -27,7 +27,7 @@ export default {
         <div class="my-container mx-auto py-5">
             <div class="n-files p-3">Found 39 Cards</div>
             <div class="cards-list d-flex flex-wrap justify-content-between">
-                <Card v-for="element in cards.slice(0,39)" :img="element.card_images[0].image_url" :name="element.name" :archetype="element.archetype"/>
+                <Card v-for="(element, index) in cards.slice(0,39)" :img="element.card_images[0].image_url" :name="element.name" :archetype="element.archetype" v-show="(index = 39)"/>
             </div>
         </div>
     </section>
