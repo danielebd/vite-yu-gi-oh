@@ -6,8 +6,8 @@
 </script>
 
 <template>
-     <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+     <div class="dropdown p-4 ">
+            <button class="btn btn-secondary dropdown-toggle bg-light text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 archetype
             </button>
             <ul class="dropdown-menu">
