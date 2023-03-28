@@ -9,16 +9,17 @@ export default {
     },
     data() {
         return {
-            cards: []
-        }
-    },
-    created() {
+            cards: [],
+
+        }},
+        created(){
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
-        .then((response) => {
-            console.log(response)
-            this.cards = response.data.data;
-        })
-    }
+            .then((response) => {
+                console.log(response);
+                this.cards = response.data.data;
+            })
+        }
+    
 }
 </script>
 
@@ -26,8 +27,9 @@ export default {
     <section class="big-container">
         <div class="my-container mx-auto py-5">
             <div class="n-files p-3">Found 39 Cards</div>
-            <div class="cards-list d-flex flex-wrap justify-content-between">
-                <Card v-for="(element, index) in cards.slice(0,39)" :img="element.card_images[0].image_url" :name="element.name" :archetype="element.archetype" v-show="(index = 39)"/>
+            <div class="cards-list d-flex flex-wrap">
+                <Card v-for="(element, index) in cards.slice(0, 39)" :img="element.card_images[0].image_url"
+                    :name="element.name" :archetype="element.archetype" v-show="(index = 39)" />
             </div>
         </div>
     </section>

@@ -28,6 +28,7 @@ export default {
     .card {
         width: calc(100% / 5 - 15px);
         background-color: #d48f38;
+        margin: 0 7.5px;
         img {
             width: 100%;
             background-image: url('https://www.grouphealth.ca/wp-content/uploads/2018/05/placeholder-image.png');
