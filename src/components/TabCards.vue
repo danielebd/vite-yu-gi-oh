@@ -26,7 +26,7 @@ export default {
         <div class="p-4 my-archetype">
             <select v-model="store.selectKey" @change="$emit('select')" class="form-select form-select-lg mb-3 my-select" aria-label=".form-select-lg example">
                 <option selected>Select Archetype</option>
-                <Archetype  v-for="element in store.archetypes.slice(15, 20)" :archetype="element.archetype_name" :value="element.archetype_name"/>
+                <Archetype  v-for="element in store.archetypes" :archetype="element.archetype_name" :value="element.archetype_name"/>
             </select>
         </div>
         <div class="my-container mx-auto py-5">
