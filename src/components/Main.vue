@@ -1,14 +1,13 @@
 
 <script>
-import Archetype from './Archetype.vue';
+
 import TabCards from './TabCards.vue'
 export default {
     name: 'Main',
     components: {
-        Archetype,
         TabCards
+    },
 
-    }
 }
 </script>
 
