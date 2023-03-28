@@ -41,9 +41,9 @@ export default {
 <template>
     <section class="big-container">
         <div class="dropdown p-4 my-archetype">
-            <select class="form-select form-select-lg mb-3 my-select" aria-label=".form-select-lg example">
-                <option @click="selected()" class="dropdown-item" value="">select archetype</option>
-                <Archetype @click="selected()" v-for="element in archetypes.slice(15, 20)" :archetype="element.archetype_name" />
+            <select onchange="selected()" class="form-select form-select-lg mb-3 my-select" aria-label=".form-select-lg example">
+                <option  class="dropdown-item" value="">select archetype</option>
+                <Archetype  v-for="element in archetypes.slice(15, 20)" :archetype="element.archetype_name" :value="element.archetype_name"/>
             </select>
         </div>
         <div class="my-container mx-auto py-5">
