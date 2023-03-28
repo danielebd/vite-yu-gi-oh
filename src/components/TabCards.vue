@@ -13,7 +13,13 @@ export default {
         return {
             cards: [],
             result: 0,
-            archetypes: []
+            archetypes: [],
+            selectKey: ""
+        }
+    },
+    methods:{
+        selected(){
+            console.log('ciao');
         }
     },
     created() {
@@ -35,13 +41,10 @@ export default {
 <template>
     <section class="big-container">
         <div class="dropdown p-4 my-archetype">
-            <button class="btn btn-secondary dropdown-toggle bg-light text-dark" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                archetype
-            </button>
-            <ul class="dropdown-menu">
-                <Archetype v-for="element in archetypes.slice(15, 20)" :archetype="element.archetype_name" />
-            </ul>
+            <select class="form-select form-select-lg mb-3 my-select" aria-label=".form-select-lg example">
+                <option @click="selected()" class="dropdown-item" value="">select archetype</option>
+                <Archetype @click="selected()" v-for="element in archetypes.slice(15, 20)" :archetype="element.archetype_name" />
+            </select>
         </div>
         <div class="my-container mx-auto py-5">
             <div class="n-files p-3">Found 39 Cards</div>
@@ -60,7 +63,9 @@ export default {
 
     .my-archetype {
         background-color: #d48f38;
-
+        .my-select{
+            width: fit-content;
+        }
     }
 
     .my-container {

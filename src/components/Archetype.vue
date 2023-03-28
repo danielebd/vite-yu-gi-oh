@@ -4,13 +4,12 @@ export default {
     name: 'Archetype',
     props: {
         archetype: String,
-        
     }
 }
 </script>
 
 <template>
-    <li><a class="dropdown-item" href="#">{{ archetype }}</a></li>
+    <option class="dropdown-item">{{ archetype }}</option>
 </template>
 
 <style lang="scss" scoped>
