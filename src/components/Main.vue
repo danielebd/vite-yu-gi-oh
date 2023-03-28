@@ -20,28 +20,54 @@ export default {
         },
 
         callCards() {
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php',
-                {
-                    params: {
-                        archetype: this.store.selectKey
-                    }
-                })
-                .then((response) => {
-                    console.log(response);
-                    this.store.cards = response.data.data;
-                })
+            if (this.store.selectKey === 'Select Archetype') {
+                axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+                    .then((response) => {
+                        console.log(response);
+                        this.store.cards = response.data.data;
+                        this.store.result = 36
+                    })
+            }
+            else {
+                axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php',
+                    {
+                        params: {
+                            archetype: this.store.selectKey
+                        }
+                    })
+                    .then((response) => {
+                        console.log(response);
+                        this.store.cards = response.data.data;
+                        this.store.result = response.data.data.length
+                    })
+                    .catch(() => {
+                        console.log('errore nessun archetipo inserito');
+                        console.log(error);
+                        this.store.cards = [];
+                        this.store.result = 36;
+                        console.log(this.store.cards);
+                    })
+            }
+
+
         }
 
     },
     created() {
 
-            axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
 
+            .then((response) => {
+                console.log(response);
+                this.store.archetypes = response.data;
+            }),
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
                 .then((response) => {
                     console.log(response);
-                    this.store.archetypes = response.data;
+                    this.store.cards = response.data.data;
+                    this.store.result = 36
                 })
-        
+
         this.callCards();
     }
 
