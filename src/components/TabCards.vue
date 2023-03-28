@@ -1,30 +1,48 @@
 
 <script>
 import Card from './Card.vue';
+import Archetype from './Archetype.vue';
 import axios from 'axios';
 export default {
     name: 'TabCards',
     components: {
-        Card
+        Card,
+        Archetype
     },
     data() {
         return {
             cards: [],
-
-        }},
-        created(){
+            result: 0,
+            archetypes: []
+        }
+    },
+    created() {
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
             .then((response) => {
                 console.log(response);
                 this.cards = response.data.data;
-            })
-        }
-    
+            }),
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+        .then((response) => {
+            console.log(response);
+            this.archetypes = response.data;
+        })
+    }
+
 }
 </script>
 
 <template>
     <section class="big-container">
+        <div class="dropdown p-4 my-archetype">
+            <button class="btn btn-secondary dropdown-toggle bg-light text-dark" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                archetype
+            </button>
+            <ul class="dropdown-menu">
+                <Archetype v-for="element in archetypes.slice(15, 20)" :archetype="element.archetype_name" />
+            </ul>
+        </div>
         <div class="my-container mx-auto py-5">
             <div class="n-files p-3">Found 39 Cards</div>
             <div class="cards-list d-flex flex-wrap">
@@ -38,6 +56,12 @@ export default {
 <style lang="scss" scoped>
 .big-container {
     background-color: white;
+    border: #d48f38;
+
+    .my-archetype {
+        background-color: #d48f38;
+
+    }
 
     .my-container {
         width: 1200px;

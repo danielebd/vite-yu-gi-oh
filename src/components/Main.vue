@@ -15,7 +15,6 @@ export default {
 <template>
     <main>
         <div class="my-container">
-            <Archetype />
             <TabCards />
         </div>
 
