@@ -15,12 +15,7 @@ export default {
             store
         }
     },
-    methods:{
-        selected(){
-            console.log('ciao');
-            console.log(this.store.selectKey);
-        }
-    },
+    
 
 }
 </script>
@@ -28,7 +23,7 @@ export default {
 <template>
     <section class="big-container">
         <div class="dropdown p-4 my-archetype">
-            <select v-model="store.selectKey" @change="selected()" class="form-select form-select-lg mb-3 my-select" aria-label=".form-select-lg example">
+            <select v-model="store.selectKey" @change="$emit('select')" class="form-select form-select-lg mb-3 my-select" aria-label=".form-select-lg example">
                 <option  class="dropdown-item" value="">select archetype</option>
                 <Archetype  v-for="element in store.archetypes.slice(15, 20)" :archetype="element.archetype_name" :value="element.archetype_name"/>
             </select>
