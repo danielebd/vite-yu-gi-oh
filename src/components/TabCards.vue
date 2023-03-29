@@ -52,7 +52,7 @@ export default {
     }
 
     .my-container {
-        width: 1200px;
+        max-width: 1200px;
 
         .n-files {
             background-color: #212529;

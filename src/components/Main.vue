@@ -87,7 +87,7 @@ main {
     background-color: #d48f38;
 
     .my-container {
-        width: 1340px;
+        max-width: 1340px;
         margin: 0 auto;
 
     }
